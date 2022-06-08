@@ -25,7 +25,19 @@ const getOne = async (req, res) => {
   }
 };
 
+const create = async (req, res) => {
+  try {
+    const { fullName, birthDate } = req.body;
+    const newPeople = await PeopleService.create({ fullName, birthDate });
+
+    return res.status(201).json(newPeople);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 module.exports = {
   getAll,
   getOne,
+  create,
 };
