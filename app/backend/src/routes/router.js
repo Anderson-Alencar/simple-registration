@@ -8,6 +8,7 @@ peopleRouter.get('/', PeopleController.getAll);
 peopleRouter.get('/:id', PeopleController.getOne);
 peopleRouter.post('/', validateBodyPeople, PeopleController.create);
 peopleRouter.put('/:id', validateBodyPeople, PeopleController.update);
+peopleRouter.delete('/:id', PeopleController.remove);
 
 module.exports = {
   peopleRouter,

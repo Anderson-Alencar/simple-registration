@@ -27,9 +27,14 @@ const update = async (id, fullName, birthDate) => {
   return peopleUpdated;
 };
 
+const remove = async (id) => {
+  await People.destroy({ where: { id } });
+};
+
 module.exports = {
   getAll,
   getOne,
   create,
   update,
+  remove,
 };

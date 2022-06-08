@@ -53,9 +53,28 @@ const update = async (req, res) => {
   }
 };
 
+const remove = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const found = await PeopleService.getOne(id);
+
+    if (!found) {
+      return res.status(404).json({ error: 'People not found' });
+    }
+
+    await PeopleService.remove(id);
+
+    return res.status(200).json({ message: 'People successfully removed' });
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 module.exports = {
   getAll,
   getOne,
   create,
   update,
+  remove,
 };
