@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Persons',
+  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Peoples',
     [
       {
         fullName: 'Alessandro Mendes',
@@ -21,5 +21,5 @@ module.exports = {
       },
     ], {}),
 
-  down: async (queryInterface) => queryInterface.bulkDelete('Persons', null, {}),
+  down: async (queryInterface) => queryInterface.bulkDelete('Peoples', null, {}),
 };
