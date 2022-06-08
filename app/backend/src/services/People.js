@@ -12,7 +12,17 @@ const getOne = async (id) => {
   return people;
 };
 
+const create = async (data) => {
+  const newPeople = await People.create(data);
+
+  return {
+    id: newPeople.dataValues.id,
+    ...data,
+  };
+};
+
 module.exports = {
   getAll,
   getOne,
+  create,
 };
