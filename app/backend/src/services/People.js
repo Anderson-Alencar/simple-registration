@@ -1,9 +1,9 @@
 const { People } = require('../database/models');
 
 const getAll = async () => {
-  const peoples = await People.findAll();
+  const persons = await People.findAll();
 
-  return peoples;
+  return persons;
 };
 
 module.exports = {
