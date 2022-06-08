@@ -36,8 +36,26 @@ const create = async (req, res) => {
   }
 };
 
+const update = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { fullName, birthDate } = req.body;
+
+    const peopleUpdated = await PeopleService.update(id, fullName, birthDate);
+
+    if (!peopleUpdated) {
+      return res.status(404).json({ error: 'People not found' });
+    }
+
+    return res.status(200).json({ message: 'People successfully updated' });
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 module.exports = {
   getAll,
   getOne,
   create,
+  update,
 };
