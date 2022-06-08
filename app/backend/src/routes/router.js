@@ -7,6 +7,7 @@ const peopleRouter = express.Router();
 peopleRouter.get('/', PeopleController.getAll);
 peopleRouter.get('/:id', PeopleController.getOne);
 peopleRouter.post('/', validateBodyPeople, PeopleController.create);
+peopleRouter.put('/:id', validateBodyPeople, PeopleController.update);
 
 module.exports = {
   peopleRouter,

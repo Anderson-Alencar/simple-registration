@@ -21,8 +21,15 @@ const create = async (data) => {
   };
 };
 
+const update = async (id, fullName, birthDate) => {
+  const [peopleUpdated] = await People.update({ fullName, birthDate }, { where: { id } });
+
+  return peopleUpdated;
+};
+
 module.exports = {
   getAll,
   getOne,
   create,
+  update,
 };
