@@ -1,7 +1,7 @@
 const People = (sequelize, DataTypes) => {
   const People = sequelize.define('People', {
     fullName: DataTypes.STRING,
-    birthDate: DataTypes.DATE,
+    birthDate: DataTypes.DATEONLY,
   }, {
     timestamps: false,
     modelName: 'People',
