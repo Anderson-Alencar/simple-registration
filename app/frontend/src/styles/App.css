@@ -14,6 +14,22 @@
   color: #17356E;
 }
 
+.button-remove {
+  font-weight: 700;
+  text-transform: uppercase;
+  fill: #17356E;
+  color: #17356E;
+  background-color: #02010100;
+  border-style: solid;
+  border-color: #17356E;
+  padding: 10px 16px;
+}
+
+.button-remove:hover {
+  color: white;
+  background-color: #17356E;
+}
+
 .col {
   font-family: 'Montserrat';
   font-style: normal;
@@ -76,6 +92,7 @@
 
 .person-table {
   margin-top: 40px;
+  margin-bottom: 40px;
   width: 65%;
   margin-left: auto;
   margin-right: auto;
