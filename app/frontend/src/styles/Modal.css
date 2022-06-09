@@ -1,0 +1,150 @@
+.modal {
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-body {
+  margin: 7% auto; 
+  padding: 20px;
+  width: 458px; 
+  background: #FFFFFF;
+  border-radius: 8px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close {
+  color: #aaa;
+  font-size: 24px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  align-self: flex-end;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 124%;
+  color: #424242;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+
+.modal-subtitle {
+  width: 300px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 148%;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #757575;
+}
+
+.modal-buttons {
+  display: flex;
+  width: 425px;
+  justify-content: space-evenly;
+  margin-bottom: 60px;
+}
+
+.btn-remove {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 10px;
+  background: #FC3333;
+  border-radius: 8px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 148%;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #F1F1F1;
+  border: none;
+  width: 180px;
+}
+
+.btn-no-remove {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid #424242;
+  border-radius: 8px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 148%;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #424242;
+  width: 180px;
+}
+
+.btn-remove:hover,
+.btn-no-remove:hover,
+.btn-back-modal:hover {
+  cursor: pointer;
+}
+
+.btn-remove:hover {
+  color: #FFFFFF
+}
+
+.btn-no-remove:hover,
+.btn-back-modal:hover {
+  color: black;
+}
+
+.btn-back-modal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid #424242;
+  border-radius: 8px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 148%;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #424242;
+  width: 180px;
+  margin-top: 30px;
+}
