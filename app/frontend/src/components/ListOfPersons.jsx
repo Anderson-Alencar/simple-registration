@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import PersonContext from '../context/PersonContext';
 import { requestGet } from '../services/requests';
 
 export default function ListOfPersons() {
   const [persons, setPersons] = useState([]);
   const [age, setAge] = useState([]);
 
+  const { isLoading } = useContext(PersonContext);
+
   useEffect(() => {
     (async () => {
       const { data } = await requestGet('/peoples');
       setPersons(data);
     })();
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     const result = persons.map(({ birthDate }) => {
@@ -56,6 +59,9 @@ export default function ListOfPersons() {
           })
         }
       </tbody>
+      {
+        isLoading && <span>Carregando...</span>
+      }
     </table>
   );
 }
