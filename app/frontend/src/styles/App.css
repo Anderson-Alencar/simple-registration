@@ -1,0 +1,98 @@
+.button-form {
+  color: white;
+  background-color: #1CB5E0;
+  padding: 16px;
+  border-radius: 100px;
+  border: none;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.2em;
+}
+
+.button-form:hover {
+  background-color: white;
+  color: #17356E;
+}
+
+.col {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 148%;
+  letter-spacing: -0.02em;
+  color: #495057;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #17356E;
+  color: white;
+  width: 80%;
+  height: 300px;
+  box-shadow: 4px 5px 1px 0px #b8fc1c;
+}
+
+.header-table {
+  height: 80px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  text-align: left;
+  letter-spacing: -0.02em;
+  color: #17356E;
+}
+
+.input-control {
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.inputs-group {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.label-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.person-table {
+  margin-top: 40px;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table, th, td {
+  border-collapse: collapse;
+}
+
+.title-form {
+  margin: 0;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #F1F3F5;
+}
+
+.row {
+  height: 64px;
+}

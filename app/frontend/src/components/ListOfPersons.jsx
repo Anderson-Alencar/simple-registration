@@ -33,8 +33,8 @@ export default function ListOfPersons() {
   }, [persons]);
 
   return (
-    <table>
-      <thead>
+    <table className="person-table">
+      <thead className="header-table">
         <tr>
           <th>Nome</th>
           <th>Data de nascimento</th>
@@ -50,10 +50,10 @@ export default function ListOfPersons() {
             const y = birth[0];
 
             return (
-              <tr key={id}>
-                <td>{ fullName }</td>
-                <td>{ `${d}/${m}/${y}` }</td>
-                <td>{ age[index] }</td>
+              <tr key={id} className="row">
+                <td className="col">{ fullName }</td>
+                <td className="col">{ `${d}/${m}/${y}` }</td>
+                <td className="col">{ `${age[index]} anos` }</td>
               </tr>
             );
           })
