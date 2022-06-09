@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
+import FormAddPerson from './components/FormAddPerson';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        My App
-      </header>
+      <FormAddPerson />
     </div>
   );
 }
