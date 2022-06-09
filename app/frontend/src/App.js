@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
 import FormAddPerson from './components/FormAddPerson';
 import ListOfPersons from './components/ListOfPersons';
 import PersonProvider from './context/PersonProvider';
+import './styles/App.css';
 
 function App() {
   return (
     <PersonProvider>
-      <div className="App">
+      <div className="container">
         <FormAddPerson />
         <ListOfPersons />
       </div>

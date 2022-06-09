@@ -36,34 +36,37 @@ export default function FormAddPerson() {
   };
 
   return (
-    <form>
-      <h1>Cadastre uma nova pessoa</h1>
-      <div>
-        <label htmlFor="input-name">
+    <form className="container-form">
+      <h1 className="title-form">Cadastre uma nova pessoa</h1>
+      <div className="inputs-group">
+        <label htmlFor="input-name" className="label-control">
           Nome completo
           <input
             type="text"
+            className="input-control"
             value={fullName}
             onChange={({ target }) => setFullName(target.value)}
             placeholder="Nome completo"
           />
         </label>
-        <label htmlFor="input-date">
+        <label htmlFor="input-date" className="label-control">
           Data de nascimento
           <input
             type="text"
+            className="input-control"
             value={birthDate}
             onChange={handleInputDate}
             maxLength={10}
-            placeholder="Data de nascimento"
+            placeholder="DD/MM/AAAA"
           />
         </label>
       </div>
       <button
         type="button"
+        className="button-form"
         onClick={insertPerson}
       >
-        Salvar
+        ADICIONAR PESSOA
       </button>
     </form>
   );
