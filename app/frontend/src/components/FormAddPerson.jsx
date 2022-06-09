@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import PersonContext from '../context/PersonContext';
 import { requestPost } from '../services/requests';
+import { dateForSql } from '../helpers/converters';
 
 export default function FormAddPerson() {
   const [fullName, setFullName] = useState();
@@ -11,15 +12,8 @@ export default function FormAddPerson() {
 
   const handleInputDate = ({ target }) => {
     const { value } = target;
-
-    if (value.length === 10) {
-      const splited = value.split('-');
-      const order = [splited[2], splited[1], splited[0]];
-
-      const result = order.join('-');
-
-      setDateFormatSQL(result);
-    }
+    const data = dateForSql(value);
+    setDateFormatSQL(data);
   };
 
   const insertPerson = async () => {
