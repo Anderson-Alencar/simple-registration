@@ -17,6 +17,22 @@
 .button-remove {
   font-weight: 700;
   text-transform: uppercase;
+  fill: #FC3333;
+  color: #FC3333;
+  background-color: #02010100;
+  border-style: solid;
+  border-color: #FC3333;
+  padding: 10px 16px;
+}
+
+.button-remove:hover {
+  color: white;
+  background-color: #FC3333;
+}
+
+.button-update {
+  font-weight: 700;
+  text-transform: uppercase;
   fill: #17356E;
   color: #17356E;
   background-color: #02010100;
@@ -25,7 +41,7 @@
   padding: 10px 16px;
 }
 
-.button-remove:hover {
+.button-update:hover {
   color: white;
   background-color: #17356E;
 }

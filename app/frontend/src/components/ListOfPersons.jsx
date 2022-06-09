@@ -1,13 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PersonContext from '../context/PersonContext';
+import { sqlForDate } from '../helpers/converters';
 import { requestGet } from '../services/requests';
 import AlertRemovePerson from './AlertRemovePerson';
+import FormUpdatePerson from './FormUpdatePerson';
 import RemoveButton from './RemoveButton';
+import UpdateButton from './UpdateButton';
 
 export default function ListOfPersons() {
   const [persons, setPersons] = useState([]);
   const [age, setAge] = useState([]);
   const [alertRemove, setAlertRemove] = useState(false);
+  const [modalUpdate, setModalUpdate] = useState(false);
   const [idPerson, setIdPerson] = useState();
 
   const { isLoading } = useContext(PersonContext);
@@ -45,6 +49,15 @@ export default function ListOfPersons() {
     setAlertRemove(false);
   };
 
+  const showModalUpdate = (id) => {
+    setModalUpdate(true);
+    setIdPerson(id);
+  };
+
+  const hiddenModalUpdate = () => {
+    setModalUpdate(false);
+  };
+
   return (
     <table className="person-table">
       <thead className="header-table">
@@ -52,22 +65,25 @@ export default function ListOfPersons() {
           <th>Nome</th>
           <th>Data de nascimento</th>
           <th>Idade</th>
-          <th>Opções</th>
+          <th colSpan={2}>Opções</th>
         </tr>
       </thead>
       <tbody>
         {
           persons.map(({ id, fullName, birthDate }, index) => {
-            const birth = birthDate.split('-');
-            const d = birth[2];
-            const m = birth[1];
-            const y = birth[0];
+            const date = sqlForDate(birthDate);
 
             return (
               <tr key={id} className="row">
                 <td className="col">{ fullName }</td>
-                <td className="col">{ `${d}/${m}/${y}` }</td>
+                <td className="col">{ date }</td>
                 <td className="col">{ `${age[index]} anos` }</td>
+                <td className="col">
+                  <UpdateButton
+                    showModalUpdate={showModalUpdate}
+                    id={id}
+                  />
+                </td>
                 <td className="col"><RemoveButton showAlertRemove={showAlertRemove} id={id} /></td>
 
               </tr>
@@ -83,6 +99,16 @@ export default function ListOfPersons() {
           <div className="modal">
             <AlertRemovePerson
               hiddenAlertRemove={hiddenAlertRemove}
+              id={idPerson}
+            />
+          </div>
+        )
+      }
+      {
+        modalUpdate && (
+          <div className="modal">
+            <FormUpdatePerson
+              hiddenModalUpdate={hiddenModalUpdate}
               id={idPerson}
             />
           </div>
