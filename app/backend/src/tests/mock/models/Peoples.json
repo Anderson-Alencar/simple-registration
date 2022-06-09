@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "fullName": "Rodrigo Lima",
+    "birthDate": "2000-08-15"
+  },
+  {
+    "id": 2,
+    "fullName": "Vera Pires",
+    "birthDate": "1978-11-17"
+  }
+]
