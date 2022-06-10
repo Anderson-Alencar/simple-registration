@@ -1,13 +1,9 @@
 export const dateForSql = (value) => {
-  if (value.length === 10) {
-    const splited = value.split('/');
-    const order = [splited[2], splited[1], splited[0]];
-    const result = order.join('-');
+  const splited = value.split('/');
+  const order = [splited[2], splited[1], splited[0]];
+  const result = order.join('-');
 
-    return result;
-  }
-
-  return null;
+  return result;
 };
 
 export const sqlForDate = (value) => {

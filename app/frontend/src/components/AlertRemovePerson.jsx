@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Modal.css';
 import { requestDelete } from '../services/requests';
+import PersonContext from '../context/PersonContext';
 
 function AlertRemovePerson({ hiddenAlertRemove, id }) {
+  const { setIsLoading } = useContext(PersonContext);
+
   const removeContact = async () => {
+    setIsLoading(true);
     const endpoint = (`/peoples/${id}`);
     await requestDelete(endpoint);
     hiddenAlertRemove();
-    window.location.reload(false);
+    setIsLoading(false);
   };
 
   return (

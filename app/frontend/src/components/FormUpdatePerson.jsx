@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Modal.css';
 import { requestGet, requestPut } from '../services/requests';
 import { dateForSql, sqlForDate } from '../helpers/converters';
+import PersonContext from '../context/PersonContext';
 
 export default function FormUpdatePerson({
   hiddenModalUpdate, id,
@@ -10,6 +11,9 @@ export default function FormUpdatePerson({
   const [newName, setNewName] = useState();
   const [newDate, setNewDate] = useState();
   const [dateFormatSQL, setDateFormatSQL] = useState();
+  const [error, setError] = useState();
+
+  const { setIsLoading } = useContext(PersonContext);
 
   useEffect(() => {
     (async () => {
@@ -23,18 +27,26 @@ export default function FormUpdatePerson({
     })();
   }, []);
 
-  const handleInputDate = ({ target }) => {
-    const { value } = target;
-    const data = dateForSql(value);
-    setDateFormatSQL(data);
-  };
+  useEffect(() => {
+    if (newDate && newDate.length === 10) {
+      const data = dateForSql(newDate);
+      setDateFormatSQL(data);
+    }
+  }, [newDate]);
 
   const updatePerson = async () => {
-    const endpoint = (`/peoples/${id}`);
+    try {
+      setIsLoading(true);
+      const endpoint = (`/peoples/${id}`);
 
-    await requestPut(endpoint, { fullName: newName, birthDate: dateFormatSQL });
-    hiddenModalUpdate();
-    window.location.reload(false);
+      await requestPut(endpoint, { fullName: newName, birthDate: dateFormatSQL });
+      hiddenModalUpdate();
+      setIsLoading(false);
+      // window.location.reload(false);
+    } catch (err) {
+      setError(err.response.data);
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -58,6 +70,7 @@ export default function FormUpdatePerson({
               onChange={({ target }) => setNewName(target.value)}
               placeholder="Nome completo"
             />
+            { error && error.includes('Nome') && <p className="msg-erro">{ error }</p> }
           </label>
           <label htmlFor="input-date" className="label-control">
             Data de nascimento
@@ -65,10 +78,11 @@ export default function FormUpdatePerson({
               type="text"
               className="input-update"
               value={newDate}
-              onChange={handleInputDate}
+              onChange={({ target }) => setNewDate(target.value)}
               maxLength={10}
               placeholder="DD/MM/AAAA"
             />
+            { error && error.includes('Data') && <p className="msg-erro">{ error }</p> }
           </label>
         </div>
         <div className="modal-buttons">
