@@ -71,7 +71,7 @@
   background-color: #17356E;
   color: white;
   width: 80%;
-  height: 300px;
+  height: 400px;
   box-shadow: 4px 5px 1px 0px #b8fc1c;
 }
 
@@ -93,17 +93,21 @@
   border: none;
   margin-top: 5px;
   font-size: 16px;
-}
-
-.inputs-group {
-  display: flex;
-  justify-content: space-around;
-  width: 60%;
+  width: 300px;
 }
 
 .label-control {
   display: flex;
   flex-direction: column;
+  height: 120px;
+  width: 300px;
+}
+
+.msg-erro {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  font-style: italic;
 }
 
 .person-table {

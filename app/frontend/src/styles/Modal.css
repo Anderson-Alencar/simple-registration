@@ -22,7 +22,7 @@
   margin: 7% auto; 
   padding: 20px;
   width: 60%; 
-  height: 50%;
+  height: 70%;
   background: #FFFFFF;
   border-radius: 8px;
 }
@@ -52,19 +52,12 @@
   margin: 0;
 }
 
-.inputs-update-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 40%;
-  height: 200px;
-}
-
 .input-update {
   padding: 16px;
   border-radius: 8px;
   margin-top: 5px;
   font-size: 16px;
+  width: 300px;
 }
 
 .close {
