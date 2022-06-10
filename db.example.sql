@@ -2,14 +2,14 @@ CREATE DATABASE IF NOT EXISTS challenge_dg;
 
 USE challenge_dg;
 
-CREATE TABLE persons (
+CREATE TABLE Peoples (
 	id INT NOT NULL AUTO_INCREMENT,
-	name VARCHAR(90) NOT NULL,
-	birth_date DATE NOT NULL,
+	fullName VARCHAR(90) NOT NULL,
+	birthDate DATE NOT NULL,
 	PRIMARY KEY(id),
 );
 
-INSERT INTO persons (name, birth_date)
+INSERT INTO Peoples (fullName, birthDate)
 VALUES
 	('Alessandro Mendes', '2008-7-04'),
 	('Clarisse Santos', '1998-12-09'),
